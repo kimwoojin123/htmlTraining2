@@ -12,11 +12,15 @@ module.exports = (env, argv) => {
         entry: "./src/index.tsx",
         output: {
             path: path.join(__dirname, "/dist"),
-            filename: "[name].js",
+            filename: "index.js",
         },
         devServer: {
             port: 3000,
             hot: true,
+            historyApiFallback: true,
+            static: {
+                directory: path.join(__dirname, 'public'), // HTML 파일이 있는 디렉토리 지정
+            },
         },
         resolve: {
             extensions: [".js", ".jsx", ".ts", ".tsx"],
@@ -36,8 +40,8 @@ module.exports = (env, argv) => {
             new HtmlWebpackPlugin({
                 template: './public/index.html',
                 minify: process.env.NODE_ENV === 'production' ? {
-                    collapseWhitespace: true, // 빈칸 제거
-                    removeComments: true, // 주석 제거
+                    collapseWhitespace: true,
+                    removeComments: true,
                 } : false,
             }),
             new CleanWebpackPlugin(),

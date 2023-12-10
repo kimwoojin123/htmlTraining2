@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",
@@ -22,6 +23,6 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development --open --hot --progress",
     "build": "webpack --mode=production  --progress",
-    "start": "webpack --mode=development  --progress"
-}
+    "start": "webpack-dev-server --mode=development --open --hot --progress"
+  }
 }
